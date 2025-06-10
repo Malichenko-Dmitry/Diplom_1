@@ -7,12 +7,13 @@ bun_test_cases = [
     ("red bun", 300),
 ]
 
-@pytest.mark.parametrize("name, price", bun_test_cases)
-def test_bun_get_name(name, price):
-    bun = Bun(name, price)
-    assert bun.get_name() == name
+class TestBun:
+    @pytest.mark.parametrize("name, price", bun_test_cases)
+    def test_get_name(self, name, price):
+        bun = Bun(name, price)
+        assert bun.get_name() == name
 
-@pytest.mark.parametrize("name, price", bun_test_cases)
-def test_bun_get_price(name, price):
-    bun = Bun(name, price)
-    assert bun.get_price() == price
+    @pytest.mark.parametrize("name, price", bun_test_cases)
+    def test_get_price(self, name, price):
+        bun = Bun(name, price)
+        assert bun.get_price() == price
